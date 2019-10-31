@@ -26,11 +26,13 @@ function loop(curTotal,curIndex){
     //每页多少条
     let pageCount = Math.min(curTotal , once);
     window.requestAnimationFrame(function(){
+        let fragment = document.createDocumentFragment();
         for(let i = 0; i < pageCount; i++){
             let li = document.createElement('li');
             li.innerText = curIndex + i + ' : ' + ~~(Math.random() * total)
-            ul.appendChild(li)
+            fragment.appendChild(li)
         }
+        ul.appendChild(frameElement);
         loop(curTotal - pageCount,curIndex + pageCount)
     })
 }
