@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<style type="text/css">
+    .sj{
+        width:50px;
+        height:50px;
+        border:1px solid red;
+        position:absolute;
+        left:0
+    }
+</style>
+<body>
+    <div class="sj" id="sj"></div>
+</body>
+<script type="application/javascript">
+    const ele = document.getElementById('sj');
+    const start = Date.now(); // remember start time
+    let timePassed = 0;
+
+    function animate(ele){
+
+        if(timePassed < 500) {
+            // ele.style.top = ele.offsetTop + 10 + 'px'
+            ele.style.top = ele.offsetTop + timePassed + 'px';
+            timePassed = Date.now() - start;
+            console.log("=====", ele.offsetTop + timePassed);
+            window.requestAnimationFrame(() => {
+                animate(ele)
+            })
+        }
+
+    }
+
+    animate(ele)
+
+</script>
+</html>
