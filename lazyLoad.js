@@ -17,7 +17,7 @@ class _LazyMan {
         const task = () => {
             console.log(`Hi, This is ${name} !`);
             this.next();
-        }
+        };
 
         this.tasks.push(task);
         setTimeout(()=> {
@@ -34,7 +34,7 @@ class _LazyMan {
         const task = () => {
             console.log(`Eat ${name} ~~~`);
             this.next();
-        }
+        };
 
         this.tasks.push(task);
         return this;
@@ -56,7 +56,7 @@ class _LazyMan {
                 console.log(`Wake up after ${time}`);
                 this.next();
             }, time * 1000)
-        }
+        };
 
         if(first) {
             this.tasks.unshift(task)
@@ -66,5 +66,24 @@ class _LazyMan {
     }
 }
 
+/*If no sleep first, use this directly*/
+class Coder{
+    sleep(){
+        console.log("sleep");
+        return this;//链式调用的关键
+    }
+    print1(){
+        console.log(1);
+        return this;//链式调用的关键
+    }
+    print2(){
+        console.log(2);
+        return this;//链式调用的关键
+    }
+}
+
+const coder = new Coder();
+
 LazyMan("Hank").sleepFirst(2).eat("dinner");
 LazyMan("Hank").sleep(2).eat("dinner");
+coder.sleep().print1();
