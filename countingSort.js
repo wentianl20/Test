@@ -1,4 +1,4 @@
-
+/*计数排序*/
 function countSort(arr){
     let max = arr[0];
     let min = arr[0];
@@ -29,4 +29,4 @@ function countSort(arr){
     return arr
 }
 
-console.log(countSort([-2,-1,5,4,6,3]));
+console.log(countSort([-2,-1,5,4,6,3,3]));
